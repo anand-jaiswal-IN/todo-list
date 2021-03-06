@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dom manupulation</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>To do list: </h1>
+        <br>br
+        <div id="elmt">
+            <!-- <p>Hello world <button onclick="deleteItem()">Delete</button></p> -->
+        </div>
+        <div id="submit">
+            <input type="text" name="addText" id="addText">
+            <button type="submit" id="addItem" onclick="addItem()">submit</button>
+
+        </div>
+
+    </div>
+</body>
+<script>
+
+    function* integers() {
+        var index = 1
+        while (true) {
+            yield index;
+            index++
+        }
+    }
+    var num1 = integers()
+    var num2 = integers()
+
+    function addItem() {
+        // getting value of text input
+        var item = document.getElementById("addText").value
+
+        if (item == ""){
+            alert("Enter some text!!!")
+        }
+        else{
+        // adding paragraph tag
+        var pNode = document.createElement("p")
+        pNode.appendChild(document.createTextNode(item))
+        var pattr = document.createAttribute("id")
+        pattr.value = `para${num1.next().value}`
+        pNode.setAttributeNode(pattr)
+        var elem = document.getElementById("elmt")
+        elem.appendChild(pNode)
+
+        // adding button
+        var delBtn = document.createElement("button")
+        delBtn.appendChild(document.createTextNode("Delete"))
+        var attrDelBtn = document.createAttribute("onclick")
+        attrDelBtn.value = `deleteItem(${num2.next().value})`
+        delBtn.setAttributeNode(attrDelBtn)
+
+        // appending delete button in paragraph tag
+        pNode.appendChild(delBtn)
+
+        document.getElementById("addText").value = ""}
+    }
+
+    function deleteItem(paraId) {
+        // Deleting that element from document
+        document.getElementById(`para${paraId}`).remove()
+    }
+</script>
+
+</html>
