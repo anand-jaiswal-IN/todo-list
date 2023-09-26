@@ -1,2 +1,9 @@
-# To-do-list-using-web-language
-This involves the the a input button and text area where you fill text. When button is being clicked then the function add a html element on the page containing text and a delete button.
+# Todo List
+A simple web-based Todo List application created using HTML, CSS, and JavaScript.
+
+## Feature
+- Add new tasks to your to-do list.
+- Remove tasks from the list.
+
+## Access Todo List
+Go to this link - [Demo](https://anand-jaiswal-in.github.io/To-do-list-using-web-language/)
